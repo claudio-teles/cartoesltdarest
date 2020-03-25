@@ -23,7 +23,7 @@ Servidor Rest para maquina de crédito e débito.
 
 <br >
 
-![saldo_inicial](./cartoesltdarest/gifs/consultar_saldo_inicial.gif)
+![saldo_inicial](./gifs/consultar_saldo_inicial.gif)
 
 # Obter transações
 
