@@ -1,0 +1,65 @@
+/*C12*/SET SCHEMA PUBLIC
+\u000a    drop table if exists saldo CASCADE 
+\u000a    drop table if exists transacao CASCADE 
+\u000a    drop sequence sequencia_saldo if exists
+\u000a    drop sequence sequencia_transacao if exists
+create sequence sequencia_saldo start with 1 increment by 1
+create sequence sequencia_transacao start with 459355 increment by 1
+\u000a    create table saldo (\u000a       id bigint not null,\u000a        disponivel float not null,\u000a        password varchar(15) not null,\u000a        receber float not null,\u000a        user varchar(15) not null,\u000a        primary key (id)\u000a    )
+\u000a    create table transacao (\u000a       nsu bigint not null,\u000a        bandeira varchar(20) not null,\u000a        disponivel timestamp,\u000a        horario timestamp,\u000a        liquido float,\u000a        modalidade varchar(20) not null,\u000a        valor float not null,\u000a        primary key (nsu)\u000a    )
+INSERT INTO SALDO VALUES(1,1000.0E0,'123456',0.0E0,'terminal')
+ALTER SEQUENCE PUBLIC.SEQUENCIA_SALDO RESTART WITH 2
+COMMIT
+INSERT INTO SALDO VALUES(2,1000.0E0,'123456',0.0E0,'portal')
+ALTER SEQUENCE PUBLIC.SEQUENCIA_SALDO RESTART WITH 3
+COMMIT
+INSERT INTO SALDO VALUES(3,1000.0E0,'senha3',0.0E0,'user3')
+ALTER SEQUENCE PUBLIC.SEQUENCIA_SALDO RESTART WITH 4
+COMMIT
+INSERT INTO SALDO VALUES(4,1000.0E0,'senha4',0.0E0,'user4')
+ALTER SEQUENCE PUBLIC.SEQUENCIA_SALDO RESTART WITH 5
+COMMIT
+INSERT INTO SALDO VALUES(5,1000.0E0,'senha5',0.0E0,'user5')
+ALTER SEQUENCE PUBLIC.SEQUENCIA_SALDO RESTART WITH 6
+COMMIT
+DELETE FROM SALDO WHERE ID=1
+INSERT INTO SALDO VALUES(1,951.5E0,'123456',48.5E0,'terminal')
+COMMIT
+INSERT INTO TRANSACAO VALUES(459355,'MASTERCARD','2020-03-04 16:30:00.000000','2020-03-25 16:09:04.428000',951.5E0,'credito',48.5E0)
+ALTER SEQUENCE PUBLIC.SEQUENCIA_TRANSACAO RESTART WITH 459356
+COMMIT
+DELETE FROM SALDO WHERE ID=1
+INSERT INTO SALDO VALUES(1,804.5E0,'123456',147.0E0,'terminal')
+COMMIT
+INSERT INTO TRANSACAO VALUES(459356,'MASTERCARD','2020-03-04 00:00:00.000000','2020-03-25 16:10:55.354000',804.5E0,'debito',147.0E0)
+ALTER SEQUENCE PUBLIC.SEQUENCIA_TRANSACAO RESTART WITH 459357
+COMMIT
+DELETE FROM SALDO WHERE ID=1
+INSERT INTO SALDO VALUES(1,461.5E0,'123456',343.0E0,'terminal')
+COMMIT
+INSERT INTO TRANSACAO VALUES(459357,'MASTERCARD','2020-03-04 00:00:00.000000','2020-03-25 16:11:12.230000',461.5E0,'debito',343.0E0)
+ALTER SEQUENCE PUBLIC.SEQUENCIA_TRANSACAO RESTART WITH 459358
+COMMIT
+\u000a    drop table if exists saldo CASCADE 
+\u000a    drop table if exists transacao CASCADE 
+\u000a    drop sequence sequencia_saldo if exists
+\u000a    drop sequence sequencia_transacao if exists
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT

@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "ec1812cb-af88-4d8b-b0d5-a71c8f860b19",
+		"name": "CartoesLTDARest",
+		"description": "Servidor Rest que simula uma maquininha de cartões de crédito consumindo uma api Rest em um servidor.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				},
+				"description": "Requisão com final: /"
+			},
+			"response": []
+		},
+		{
+			"name": "ObterSaldo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": \"portal\",\n\t\"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/saldo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"saldo"
+					]
+				},
+				"description": "Requisão com final: /"
+			},
+			"response": []
+		},
+		{
+			"name": "PostarTransacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": \"terminal\",\n\t\"password\": \"123456\",\n\t\"valor\": \"50\",\n\t\"bandeira\": \"MASTERCARD\",\n\t\"modalidade\": \"credito\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacao"
+					]
+				},
+				"description": "Requisão com final: /"
+			},
+			"response": []
+		},
+		{
+			"name": "ObterTodasTransacaos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": \"portal\",\n\t\"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transacao"
+					]
+				},
+				"description": "Requisão com final: /"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
