@@ -46,10 +46,13 @@ public class TransacaoService {
 		
 		Transacao transacao = null;
 		
+		@SuppressWarnings("deprecation")
+		int diaHoje = new Date().getDate();
+		int proximoDia = diaHoje + 1;
 		if (modalidade.equals("debito")) {
 			@SuppressWarnings("deprecation")
 			// Transações em débito: Próximo dia útil
-			Date data = new Date(new Date().getYear(), new Date().getMonth(), new Date().getDay()+1);
+			Date data = new Date(new Date().getYear(), new Date().getMonth(), proximoDia);
 			Float valorDescontado = (float) (Math.abs(valorArredondado - (valorArredondado * .02)));// Débito: 2%
 			transacao = new Transacao(valorDescontado, transacaoJson.get("bandeira"),
 					modalidade);
@@ -60,7 +63,7 @@ public class TransacaoService {
 			@SuppressWarnings("deprecation")
 			// Transações em crédito: Próximo dia útil após 30 corridos
 			Date data = new Date(
-						new Date().getYear(), new Date().getMonth(), new Date().getDay()+1, new Date().getHours(), 30
+						new Date().getYear(), new Date().getMonth(), proximoDia, new Date().getHours(), 30
 					);
 			Float valorDescontado = (float) (Math.abs(valorArredondado - (valorArredondado * .03)));// Crédito: 3%
 			transacao = new Transacao(valorDescontado, transacaoJson.get("bandeira"),
