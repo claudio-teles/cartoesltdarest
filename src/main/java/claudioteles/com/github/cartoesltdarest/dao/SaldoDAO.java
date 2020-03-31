@@ -32,8 +32,8 @@ public class SaldoDAO {
 		return saldoRepository.existsByUser(user);
 	}
 	
-	public void salveOuAtualize(Saldo saldo) {
+	public void salve(Saldo saldo) {
 		saldoRepository.save(saldo);
 	}
-
+	
 }

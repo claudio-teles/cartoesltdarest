@@ -20,29 +20,30 @@ public class CartoesltdarestApplication {
 	
 	@Bean
 	public CommandLineRunner inicializarSaldo(SaldoRepository saldoRepository) {
-		return (args) -> {
-			
-			saldoRepository.save(new Saldo("terminal", "123456", 1000f, 0f));
-			saldoRepository.save(new Saldo("portal", "123456", 1000f, 0f));
-			
-			saldoRepository.save(new Saldo("user3", "senha3", 1000f, 0f));
-			saldoRepository.save(new Saldo("user4", "senha4", 1000f, 0f));
-			saldoRepository.save(new Saldo("user5", "senha5", 1000f, 0f));
-			
-			
-			int quantidadeDeUsuarios = (int) saldoRepository.count();
-			
+		int quantidadeDeUsuarios = (int) saldoRepository.count();
+		
+		if (quantidadeDeUsuarios > 0) {
 			for (int i = 0; i < quantidadeDeUsuarios; i++) {
 				List<Saldo> saldos = new ArrayList<>();
-				
+
 				saldos.addAll(saldoRepository.findAll());
-				
+
 				Saldo saldo = new Saldo();
 				saldo = saldos.get(i);
-				System.err.println(
-						"ID: "+saldo.getId()+ ", User: "+saldo.getUser()+", Disponível: "+saldo.getDisponivel()
-						+", Receber: "+saldo.getReceber()
-					);
+				System.err.println("ID: " + saldo.getId() + ", User: " + saldo.getUser() + ", Disponível: "
+						+ saldo.getDisponivel() + ", Receber: " + saldo.getReceber());
+			} 
+		}
+		return (args) -> {
+			
+			if (quantidadeDeUsuarios < 5) {
+				saldoRepository.save(new Saldo(1l, "terminal", "123456", 1000f, 0f));
+				saldoRepository.save(new Saldo(2l, "portal", "123456", 1000f, 0f));
+				
+				saldoRepository.save(new Saldo(3l, "user3", "senha3", 1000f, 0f));
+				saldoRepository.save(new Saldo(4l, "user4", "senha4", 1000f, 0f));
+				saldoRepository.save(new Saldo(5l, "user5", "senha5", 1000f, 0f));
+
 			}
 
 		};

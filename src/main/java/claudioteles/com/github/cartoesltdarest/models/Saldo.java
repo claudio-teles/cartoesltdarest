@@ -21,7 +21,7 @@ public class Saldo implements Serializable {
 	
 	@Id
 	@GeneratedValue(generator = "gerador_de_id_saldo", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "gerador_de_id_saldo", sequenceName = "sequencia_saldo", initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "gerador_de_id_saldo", sequenceName = "sequencia_saldo", initialValue = 10, allocationSize = 1)
 	@Column(nullable = false)
 	private Long id;
 	@Column(nullable = false, length = 15)
@@ -45,7 +45,13 @@ public class Saldo implements Serializable {
 		this.receber = receber;
 	}
 
-
+	public Saldo(Long id, String user, String password, Float disponivel, Float receber) {
+		super();
+		this.user = user;
+		this.password = password;
+		this.disponivel = disponivel;
+		this.receber = receber;
+	}
 
 	public Long getId() {
 		return id;

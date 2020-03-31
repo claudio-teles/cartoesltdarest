@@ -82,7 +82,7 @@ public class TransacaoService {
 		saldo.setDisponivel(saldo.getDisponivel() - transacao.getValor());
 		saldo.setReceber(transacao.getValor());
 		
-		saldoDAO.salveOuAtualize(saldo);
+		saldoDAO.salve(saldo);
 		
 		Float liquido = (saldo.getDisponivel());
 		
